@@ -11,27 +11,21 @@ abstract class MarkedArticlesService {
 class MarkedArticlesServiceImpl implements MarkedArticlesService {
   @override
   Future<Either> getMarkedArticles() async {
-    print('Fetching marked articles...');
     try {
       final List<String> markedIds = await sl<GetMarkedArticlesUseCase>()
           .call();
       if (markedIds.isEmpty) {
-        print('No marked articles found locally.');
         return Right([]);
       }
-      print('Marked article IDs: ${markedIds.length}');
       final client = RestClient(localDio);
       final requestBody = GetByIDsRequest(ids: markedIds);
 
       final List<ArticleDetailEntity> response = await client.getMarkedArticles(
         requestBody,
       );
-      print(
-        'Marked articles fetched successfully: ${response.length} articles found.',
-      );
+
       return Right(response);
     } catch (e) {
-      print('An error occurred in getMarkedArticles: $e');
       return Left(e);
     }
   }

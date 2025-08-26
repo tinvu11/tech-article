@@ -23,6 +23,8 @@ import 'package:flutter_article/domain/usecase/home/articles_all_usecase.dart';
 import 'package:flutter_article/domain/usecase/marked_storage/marked_storage_usecase.dart';
 import 'package:flutter_article/domain/usecase/marked_articles/marked_articles_usecase.dart';
 import 'package:flutter_article/domain/usecase/search/search_usecase.dart';
+import 'package:flutter_article/ui/home_screen/bloc/home_bloc.dart';
+import 'package:flutter_article/ui/read_screen/bloc/read_screen_bloc.dart';
 import 'package:get_it/get_it.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
@@ -30,6 +32,10 @@ final sl = GetIt.instance;
 final localDio = DioProvider.instance();
 
 Future<void> initializeDependencies() async {
+  // BLoc
+  sl.registerLazySingleton(() => HomeBloc());
+  sl.registerLazySingleton(() => ReadScreenBloc());
+
   // home
   sl.registerSingleton<ArticlesAllRepo>(ArticlesAllRepoImpl());
   sl.registerSingleton<ArticlesAllService>(ArticlesAllServiceImpl());

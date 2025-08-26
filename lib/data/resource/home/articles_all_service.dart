@@ -10,13 +10,11 @@ abstract class ArticlesAllService {
 class ArticlesAllServiceImpl extends ArticlesAllService {
   @override
   Future<Either> getHomeData(int page, int limit) async {
-    print('Fetching home data...');
     try {
       final client = RestClient(localDio);
       final ArticlesResponse homeData = await client.getHomeData(
         HomeDataRequest(page: page, limit: limit),
       );
-      print('Home data fetched successfully: ${homeData} articles found.');
       return right(homeData.toEntity());
     } catch (e) {
       return const Left('An error occurred in getHomeData, Please try again.');
