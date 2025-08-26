@@ -24,6 +24,7 @@ import 'package:flutter_article/domain/usecase/marked_storage/marked_storage_use
 import 'package:flutter_article/domain/usecase/marked_articles/marked_articles_usecase.dart';
 import 'package:flutter_article/domain/usecase/search/search_usecase.dart';
 import 'package:flutter_article/ui/home_screen/bloc/home_bloc.dart';
+import 'package:flutter_article/ui/mark_screen/bloc/mark_screen_bloc.dart';
 import 'package:flutter_article/ui/read_screen/bloc/read_screen_bloc.dart';
 import 'package:get_it/get_it.dart';
 import 'package:shared_preferences/shared_preferences.dart';
@@ -35,6 +36,7 @@ Future<void> initializeDependencies() async {
   // BLoc
   sl.registerLazySingleton(() => HomeBloc());
   sl.registerLazySingleton(() => ReadScreenBloc());
+  sl.registerLazySingleton(() => MarkScreenBloc());
 
   // home
   sl.registerSingleton<ArticlesAllRepo>(ArticlesAllRepoImpl());

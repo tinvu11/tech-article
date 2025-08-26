@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_article/ui/home_screen/bloc/home_bloc.dart';
+import 'package:flutter_article/ui/mark_screen/bloc/mark_screen_bloc.dart';
+import 'package:flutter_article/ui/mark_screen/mark_screen.dart';
 import 'package:flutter_article/ui/read_screen/bloc/read_screen_bloc.dart';
 import 'package:flutter_article/ui/read_screen/read_screen.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
@@ -47,7 +49,10 @@ class AppRouter {
       StatefulShellRoute.indexedStack(
         builder: (context, state, navigationShell) {
           return MultiBlocProvider(
-            providers: [BlocProvider(create: (context) => sl<HomeBloc>())],
+            providers: [
+              BlocProvider(create: (context) => sl<HomeBloc>()),
+              BlocProvider(create: (context) => sl<MarkScreenBloc>()),
+            ],
             child: HomeNavigation(navigationShell: navigationShell),
           );
         },
@@ -58,6 +63,16 @@ class AppRouter {
               GoRoute(
                 path: RoutePaths.home,
                 builder: (context, state) => const HomeScreen(),
+              ),
+            ],
+          ),
+
+          // MarkScreen
+          StatefulShellBranch(
+            routes: [
+              GoRoute(
+                path: RoutePaths.bookmarks,
+                builder: (context, state) => const BookMarks(),
               ),
             ],
           ),
