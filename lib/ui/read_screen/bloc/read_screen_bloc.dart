@@ -25,10 +25,8 @@ class ReadScreenBloc extends Bloc<ReadScreenEvent, ReadScreenState> {
       final bool isAlreadyMarked = await sl<IsBookmarkedUseCase>().call(
         event.idArticle,
       );
-      print('Article marked status: $isAlreadyMarked');
       emit(ReadScreenState.initial(isMarked: isAlreadyMarked));
     } catch (e) {
-      print('Failed to open article: $e');
       emit(ReadScreenState.error(message: e.toString()));
     }
   }
@@ -49,9 +47,7 @@ class ReadScreenBloc extends Bloc<ReadScreenEvent, ReadScreenState> {
           }
 
           emit(ReadScreenState.initial(isMarked: newMarkedStatus));
-          print('Bookmark toggled successfully to: $newMarkedStatus');
         } catch (e) {
-          print('Failed to toggle bookmark: $e');
           emit(ReadScreenState.error(message: e.toString()));
         }
       },

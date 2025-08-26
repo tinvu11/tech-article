@@ -218,7 +218,6 @@ class _ReadScreenState extends State<ReadScreen> {
 
         onTapLink: (text, href, title) {
           if (href != null) {
-            print('Tapped link: $href');
             // Mở URL với url_launcher nếu cần
           }
         },

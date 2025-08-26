@@ -36,22 +36,15 @@ class HomeBloc extends Bloc<HomeEvent, HomeState> {
       final categories = await sl<CategoriesUseCase>().call();
       return categories.fold(
         (failure) {
-          print("Error: ${failure.message}");
           return [];
         },
         (response) {
-          // Khi dùng @freezed:
-          // Thì categories sẽ được wrap bằng EqualUnmodifiableListView, khiến nó không thể sửa đổi. Đây là mặc định của Freezed để đảm bảo bất biến (immutable). nên không thể dung trươc tiếp response.categories
-
           List<String> categories = List<String>.from(response.categories);
-          print("Categories: $categories");
           categories.insert(0, 'all');
           return categories;
         },
       );
     } catch (e) {
-      print("Error loading categories: $e");
-      // emit(_TabContentError(message: e.toString()));
       return [];
     }
   }
