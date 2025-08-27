@@ -116,47 +116,48 @@ class _WidgetListArticleState extends State<WidgetListArticle>
   Widget _buildGridView(HomeDataEntity meta) {
     return NotificationListener<ScrollNotification>(
       onNotification: _handleScrollNotification,
-      child: Column(
-        mainAxisSize: MainAxisSize.min,
-        crossAxisAlignment: CrossAxisAlignment.start,
-        mainAxisAlignment: MainAxisAlignment.start,
-        children: [
-          Expanded(
-            child: RefreshIndicator(
-              onRefresh: () {
-                _page = 1;
-                return Future.delayed(const Duration(milliseconds: 500), () {
-                  context.read<HomeBloc>().add(
-                    HomeEvent.loadData(
-                      page: _page,
-                      limit: _limit,
-                      category: widget.category,
-                    ),
-                  );
-                });
-              },
-              child: GridView.builder(
-                padding: EdgeInsets.zero,
-                // Xóa controller khỏi GridView để nó sử dụng PrimaryScrollController
-                // controller: _scrollController,
-                itemCount: meta.articles.length,
-                shrinkWrap:
-                    true, // shrinkWrap nên là true trong một Column/Expanded
-                gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
-                  childAspectRatio: 0.84,
-                  crossAxisSpacing: 4.0,
-                  mainAxisSpacing: 2.0,
-                  crossAxisCount: 2,
-                ),
-                itemBuilder: (context, index) {
-                  var article = meta.articles[index];
-                  return _buildArticleCard(article, context);
+      child: Padding(
+        padding: const EdgeInsets.symmetric(horizontal: 6.0),
+        child: Column(
+          mainAxisSize: MainAxisSize.min,
+          crossAxisAlignment: CrossAxisAlignment.start,
+          mainAxisAlignment: MainAxisAlignment.start,
+          children: [
+            Expanded(
+              child: RefreshIndicator(
+                onRefresh: () {
+                  _page = 1;
+                  return Future.delayed(const Duration(milliseconds: 500), () {
+                    context.read<HomeBloc>().add(
+                      HomeEvent.loadData(
+                        page: _page,
+                        limit: _limit,
+                        category: widget.category,
+                      ),
+                    );
+                  });
                 },
+                child: GridView.builder(
+                  padding: EdgeInsets.zero,
+                  itemCount: meta.articles.length,
+                  shrinkWrap:
+                      true, // shrinkWrap nên là true trong một Column/Expanded
+                  gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
+                    childAspectRatio: 0.83,
+                    crossAxisSpacing: 4.0,
+                    mainAxisSpacing: 2.0,
+                    crossAxisCount: 2,
+                  ),
+                  itemBuilder: (context, index) {
+                    var article = meta.articles[index];
+                    return _buildArticleCard(article, context);
+                  },
+                ),
               ),
             ),
-          ),
-          if (_isLoadingMore) const BottomLoader(),
-        ],
+            if (_isLoadingMore) const BottomLoader(),
+          ],
+        ),
       ),
     );
   }

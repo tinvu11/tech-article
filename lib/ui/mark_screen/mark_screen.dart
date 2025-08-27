@@ -91,15 +91,13 @@ class _BookMarksState extends State<BookMarks> {
     MarkScreenState state,
   ) {
     final textTheme = Theme.of(context).textTheme;
+    final colorScheme = Theme.of(context).colorScheme;
     return OrientationBuilder(
       builder: (context, orientation) {
         final double imageSize = orientation == Orientation.landscape
             ? 140.0
             : 110.0;
         String timeAgo = FormatTime.formatTimeAgo(article.time);
-
-        // Tăng chiều cao của cả hàng khi xoay ngang
-        // final double containerHeight = orientation == Orientation.landscape ? 200.0 : 120.0;
 
         return Padding(
           padding: const EdgeInsets.symmetric(horizontal: 16),
@@ -112,7 +110,7 @@ class _BookMarksState extends State<BookMarks> {
               padding: const EdgeInsets.symmetric(vertical: 12.0),
               decoration: BoxDecoration(
                 border: BorderDirectional(
-                  bottom: BorderSide(color: Colors.grey.shade600),
+                  bottom: BorderSide(color: colorScheme.secondary, width: 2),
                 ),
               ),
               child: IntrinsicHeight(

@@ -1,19 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
-import '../navigation/router.dart';
 
 // import RoutePaths from 'package:flutter_article/presentation/navigation/route_paths.dart';
 class HomeNavigation extends StatefulWidget {
   final StatefulNavigationShell navigationShell;
   const HomeNavigation({super.key, required this.navigationShell});
-
-  static const routes = [
-    RoutePaths.home,
-    RoutePaths.bookmarks,
-    RoutePaths.person,
-  ];
-  static const labels = ["Home", "Marks", "Person"];
-  static const icons = [Icons.home, Icons.bookmarks, Icons.person];
 
   @override
   State<HomeNavigation> createState() => _HomeNavigationState();
