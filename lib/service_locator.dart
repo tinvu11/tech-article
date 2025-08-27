@@ -31,6 +31,7 @@ import 'package:flutter_article/domain/usecase/settings/settings_usecase.dart';
 import 'package:flutter_article/ui/home_screen/bloc/home_bloc.dart';
 import 'package:flutter_article/ui/mark_screen/bloc/mark_screen_bloc.dart';
 import 'package:flutter_article/ui/read_screen/bloc/read_screen_bloc.dart';
+import 'package:flutter_article/ui/search_screen/bloc/search_screen_bloc.dart';
 import 'package:flutter_article/ui/setting_screen/bloc/setting_screen_bloc.dart';
 import 'package:get_it/get_it.dart';
 import 'package:shared_preferences/shared_preferences.dart';
@@ -44,6 +45,7 @@ Future<void> initializeDependencies({AppHive? appHive}) async {
   sl.registerLazySingleton(() => ReadScreenBloc());
   sl.registerLazySingleton(() => MarkScreenBloc());
   sl.registerLazySingleton(() => SettingsBloc());
+  sl.registerLazySingleton(() => SearchScreenBloc());
 
   // home
   sl.registerSingleton<ArticlesAllRepo>(ArticlesAllRepoImpl());
