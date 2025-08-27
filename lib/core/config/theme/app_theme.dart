@@ -13,20 +13,7 @@ class AppTheme {
       onSecondary: Colors.grey.shade700,
       error: Colors.redAccent,
     ),
-    inputDecorationTheme: InputDecorationTheme(
-      filled: true,
-      hintStyle: const TextStyle(fontWeight: FontWeight.w500),
-      fillColor: Colors.transparent,
-      contentPadding: const EdgeInsets.all(30),
-      border: OutlineInputBorder(
-        borderRadius: BorderRadius.circular(30),
-        // borderSide: const BorderSide(color: AppColors.darkBackground, width: 0.4),
-      ),
-      enabledBorder: OutlineInputBorder(
-        borderRadius: BorderRadius.circular(30),
-        // borderSide: const BorderSide(color: AppColors.darkBackground, width: 0.4),
-      ),
-    ),
+
     elevatedButtonTheme: ElevatedButtonThemeData(
       style: ElevatedButton.styleFrom(
         elevation: 0,
@@ -49,17 +36,7 @@ class AppTheme {
       error: Colors.redAccent,
       outline: Color(0xFF444444),
     ),
-    inputDecorationTheme: InputDecorationTheme(
-      filled: true,
-      hintStyle: const TextStyle(fontWeight: FontWeight.w500),
-      fillColor: Colors.transparent,
-      contentPadding: const EdgeInsets.all(30),
-      border: OutlineInputBorder(borderRadius: BorderRadius.circular(30), borderSide: const BorderSide(width: 0.4)),
-      enabledBorder: OutlineInputBorder(
-        borderRadius: BorderRadius.circular(30),
-        borderSide: const BorderSide(width: 0.4),
-      ),
-    ),
+
     elevatedButtonTheme: ElevatedButtonThemeData(
       style: ElevatedButton.styleFrom(
         elevation: 0,

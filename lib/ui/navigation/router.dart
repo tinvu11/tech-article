@@ -1,4 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_article/ui/search_screen/bloc/search_screen_bloc.dart';
+import 'package:flutter_article/ui/search_screen/result_screen.dart';
+import 'package:flutter_article/ui/search_screen/search_screen.dart';
 import 'package:flutter_article/ui/setting_screen/setting_screen.dart';
 import 'package:flutter_article/ui/home_screen/bloc/home_bloc.dart';
 import 'package:flutter_article/ui/mark_screen/bloc/mark_screen_bloc.dart';
@@ -43,6 +46,24 @@ class AppRouter {
             child: Scaffold(
               body: Center(child: Text("Dữ liệu bài viết không hợp lệ")),
             ),
+          );
+        },
+      ),
+
+      GoRoute(
+        path: RoutePaths.search,
+        builder: (context, state) => BlocProvider.value(
+          value: sl<SearchScreenBloc>(),
+          child: const SearchScreen(),
+        ),
+      ),
+      GoRoute(
+        path: RoutePaths.result,
+        builder: (context, state) {
+          final searchTerm = state.extra as String? ?? '';
+          return BlocProvider.value(
+            value: sl<SearchScreenBloc>(),
+            child: ResultScreen(searchTerm: searchTerm),
           );
         },
       ),
