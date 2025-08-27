@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_article/ui/setting_screen/setting_screen.dart';
 import 'package:flutter_article/ui/home_screen/bloc/home_bloc.dart';
 import 'package:flutter_article/ui/mark_screen/bloc/mark_screen_bloc.dart';
 import 'package:flutter_article/ui/mark_screen/mark_screen.dart';
@@ -73,6 +74,14 @@ class AppRouter {
               GoRoute(
                 path: RoutePaths.bookmarks,
                 builder: (context, state) => const BookMarks(),
+              ),
+            ],
+          ),
+          StatefulShellBranch(
+            routes: [
+              GoRoute(
+                path: RoutePaths.setting,
+                builder: (context, state) => const SettingsScreen(),
               ),
             ],
           ),

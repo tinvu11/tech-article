@@ -116,7 +116,6 @@ class _TabContentState extends State<TabContent>
                       child: Text(
                         title,
                         style: textTheme.labelLarge?.copyWith(
-                          fontWeight: FontWeight.bold,
                           color: isSelected
                               ? colorScheme.onPrimary
                               : colorScheme.onSurface,
