@@ -69,6 +69,16 @@ Some useful resources to get you started:
 
 ---
 
+## 💖 Support
+
+If you wanna get updates in next version, please give me a ⭐ to the repo 👍  
+
+If you love my work and want to support, references me a part-time job, collaboration on an interesting project, or a good full-time job.  
+
+Thank you so much 👍  
+
+---
+
 ## 📄 License
 
 This project is licensed under the MIT License.
