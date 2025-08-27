@@ -27,21 +27,21 @@ samples, guidance on mobile development, and a full API reference.
   </tr>
   <tr>
     <td><strong>Home Screen</strong></td>
-    <td><img src="media/images/home_screen.png" width="300"></td>
+    <td><img src="media/images/home_screen.jpg" width="300"></td>
     <td><strong>Read Screen</strong></td>
-    <td><img src="media/images/read_screen.png" width="300"></td>
+    <td><img src="media/images/read_screen.jpg" width="300"></td>
   </tr>
   <tr>
     <td><strong>Mark Screen</strong></td>
-    <td><img src="media/images/mark_screen.jpeg" width="300"></td>
+    <td><img src="media/images/mark_screen.jpg" width="300"></td>
     <td><strong>Search Screen</strong></td>
-    <td><img src="media/images/search_screen.jpeg" width="300"></td>
+    <td><img src="media/images/search_screen.jpg" width="300"></td>
   </tr>
   <tr>
     <td><strong>Setting Screen</strong></td>
-    <td><img src="media/images/setting_screen.jpeg" width="300"></td>
+    <td><img src="media/images/setting_screen.jpg" width="300"></td>
     <td><strong>Register Screen</strong></td>
-    <td><img src="media/images/register_screen.jpeg" width="300"></td>
+    <td><img src="media/images/register_screen.jpg" width="300"></td>
   </tr>
 </table>
 
