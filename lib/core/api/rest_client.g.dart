@@ -48,7 +48,7 @@ class _RestClient implements RestClient {
   }
 
   @override
-  Future<List<ArticleDetailEntity>> getMarkedArticles(
+  Future<List<ArticleDetailResponse>> getMarkedArticles(
     GetByIDsRequest body,
   ) async {
     final _extra = <String, dynamic>{};
@@ -56,7 +56,7 @@ class _RestClient implements RestClient {
     final _headers = <String, dynamic>{};
     final _data = <String, dynamic>{};
     _data.addAll(body.toJson());
-    final _options = _setStreamType<List<ArticleDetailEntity>>(
+    final _options = _setStreamType<List<ArticleDetailResponse>>(
       Options(method: 'POST', headers: _headers, extra: _extra)
           .compose(
             _dio.options,
@@ -67,12 +67,12 @@ class _RestClient implements RestClient {
           .copyWith(baseUrl: _combineBaseUrls(_dio.options.baseUrl, baseUrl)),
     );
     final _result = await _dio.fetch<List<dynamic>>(_options);
-    late List<ArticleDetailEntity> _value;
+    late List<ArticleDetailResponse> _value;
     try {
       _value = _result.data!
           .map(
             (dynamic i) =>
-                ArticleDetailEntity.fromJson(i as Map<String, dynamic>),
+                ArticleDetailResponse.fromJson(i as Map<String, dynamic>),
           )
           .toList();
     } on Object catch (e, s) {
@@ -138,13 +138,13 @@ class _RestClient implements RestClient {
   }
 
   @override
-  Future<List<ArticleDetailEntity>> searchArticles(SearchRequest body) async {
+  Future<List<ArticleDetailResponse>> searchArticles(SearchRequest body) async {
     final _extra = <String, dynamic>{};
     final queryParameters = <String, dynamic>{};
     final _headers = <String, dynamic>{};
     final _data = <String, dynamic>{};
     _data.addAll(body.toJson());
-    final _options = _setStreamType<List<ArticleDetailEntity>>(
+    final _options = _setStreamType<List<ArticleDetailResponse>>(
       Options(method: 'POST', headers: _headers, extra: _extra)
           .compose(
             _dio.options,
@@ -155,12 +155,12 @@ class _RestClient implements RestClient {
           .copyWith(baseUrl: _combineBaseUrls(_dio.options.baseUrl, baseUrl)),
     );
     final _result = await _dio.fetch<List<dynamic>>(_options);
-    late List<ArticleDetailEntity> _value;
+    late List<ArticleDetailResponse> _value;
     try {
       _value = _result.data!
           .map(
             (dynamic i) =>
-                ArticleDetailEntity.fromJson(i as Map<String, dynamic>),
+                ArticleDetailResponse.fromJson(i as Map<String, dynamic>),
           )
           .toList();
     } on Object catch (e, s) {

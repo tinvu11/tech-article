@@ -296,7 +296,7 @@ as int,
 /// @nodoc
 mixin _$SettingScreenState implements DiagnosticableTreeMixin {
 
- SettingsSnapshot get settingsSnapshot;
+ SettingEntity get settingsEntity;
 /// Create a copy of SettingScreenState
 /// with the given fields replaced by the non-null parameter values.
 @JsonKey(includeFromJson: false, includeToJson: false)
@@ -308,21 +308,21 @@ $SettingScreenStateCopyWith<SettingScreenState> get copyWith => _$SettingScreenS
 void debugFillProperties(DiagnosticPropertiesBuilder properties) {
   properties
     ..add(DiagnosticsProperty('type', 'SettingScreenState'))
-    ..add(DiagnosticsProperty('settingsSnapshot', settingsSnapshot));
+    ..add(DiagnosticsProperty('settingsEntity', settingsEntity));
 }
 
 @override
 bool operator ==(Object other) {
-  return identical(this, other) || (other.runtimeType == runtimeType&&other is SettingScreenState&&(identical(other.settingsSnapshot, settingsSnapshot) || other.settingsSnapshot == settingsSnapshot));
+  return identical(this, other) || (other.runtimeType == runtimeType&&other is SettingScreenState&&(identical(other.settingsEntity, settingsEntity) || other.settingsEntity == settingsEntity));
 }
 
 
 @override
-int get hashCode => Object.hash(runtimeType,settingsSnapshot);
+int get hashCode => Object.hash(runtimeType,settingsEntity);
 
 @override
 String toString({ DiagnosticLevel minLevel = DiagnosticLevel.info }) {
-  return 'SettingScreenState(settingsSnapshot: $settingsSnapshot)';
+  return 'SettingScreenState(settingsEntity: $settingsEntity)';
 }
 
 
@@ -333,11 +333,11 @@ abstract mixin class $SettingScreenStateCopyWith<$Res>  {
   factory $SettingScreenStateCopyWith(SettingScreenState value, $Res Function(SettingScreenState) _then) = _$SettingScreenStateCopyWithImpl;
 @useResult
 $Res call({
- SettingsSnapshot settingsSnapshot
+ SettingEntity settingsEntity
 });
 
 
-$SettingsSnapshotCopyWith<$Res> get settingsSnapshot;
+
 
 }
 /// @nodoc
@@ -350,22 +350,13 @@ class _$SettingScreenStateCopyWithImpl<$Res>
 
 /// Create a copy of SettingScreenState
 /// with the given fields replaced by the non-null parameter values.
-@pragma('vm:prefer-inline') @override $Res call({Object? settingsSnapshot = null,}) {
+@pragma('vm:prefer-inline') @override $Res call({Object? settingsEntity = null,}) {
   return _then(_self.copyWith(
-settingsSnapshot: null == settingsSnapshot ? _self.settingsSnapshot : settingsSnapshot // ignore: cast_nullable_to_non_nullable
-as SettingsSnapshot,
+settingsEntity: null == settingsEntity ? _self.settingsEntity : settingsEntity // ignore: cast_nullable_to_non_nullable
+as SettingEntity,
   ));
 }
-/// Create a copy of SettingScreenState
-/// with the given fields replaced by the non-null parameter values.
-@override
-@pragma('vm:prefer-inline')
-$SettingsSnapshotCopyWith<$Res> get settingsSnapshot {
-  
-  return $SettingsSnapshotCopyWith<$Res>(_self.settingsSnapshot, (value) {
-    return _then(_self.copyWith(settingsSnapshot: value));
-  });
-}
+
 }
 
 
@@ -447,10 +438,10 @@ return $default(_that);case _:
 /// }
 /// ```
 
-@optionalTypeArgs TResult maybeWhen<TResult extends Object?>(TResult Function( SettingsSnapshot settingsSnapshot)?  $default,{required TResult orElse(),}) {final _that = this;
+@optionalTypeArgs TResult maybeWhen<TResult extends Object?>(TResult Function( SettingEntity settingsEntity)?  $default,{required TResult orElse(),}) {final _that = this;
 switch (_that) {
 case _SettingsState() when $default != null:
-return $default(_that.settingsSnapshot);case _:
+return $default(_that.settingsEntity);case _:
   return orElse();
 
 }
@@ -468,10 +459,10 @@ return $default(_that.settingsSnapshot);case _:
 /// }
 /// ```
 
-@optionalTypeArgs TResult when<TResult extends Object?>(TResult Function( SettingsSnapshot settingsSnapshot)  $default,) {final _that = this;
+@optionalTypeArgs TResult when<TResult extends Object?>(TResult Function( SettingEntity settingsEntity)  $default,) {final _that = this;
 switch (_that) {
 case _SettingsState():
-return $default(_that.settingsSnapshot);case _:
+return $default(_that.settingsEntity);case _:
   throw StateError('Unexpected subclass');
 
 }
@@ -488,10 +479,10 @@ return $default(_that.settingsSnapshot);case _:
 /// }
 /// ```
 
-@optionalTypeArgs TResult? whenOrNull<TResult extends Object?>(TResult? Function( SettingsSnapshot settingsSnapshot)?  $default,) {final _that = this;
+@optionalTypeArgs TResult? whenOrNull<TResult extends Object?>(TResult? Function( SettingEntity settingsEntity)?  $default,) {final _that = this;
 switch (_that) {
 case _SettingsState() when $default != null:
-return $default(_that.settingsSnapshot);case _:
+return $default(_that.settingsEntity);case _:
   return null;
 
 }
@@ -503,10 +494,10 @@ return $default(_that.settingsSnapshot);case _:
 
 
 class _SettingsState with DiagnosticableTreeMixin implements SettingScreenState {
-  const _SettingsState({this.settingsSnapshot = const SettingsSnapshot()});
+  const _SettingsState({this.settingsEntity = const SettingEntity()});
   
 
-@override@JsonKey() final  SettingsSnapshot settingsSnapshot;
+@override@JsonKey() final  SettingEntity settingsEntity;
 
 /// Create a copy of SettingScreenState
 /// with the given fields replaced by the non-null parameter values.
@@ -519,21 +510,21 @@ _$SettingsStateCopyWith<_SettingsState> get copyWith => __$SettingsStateCopyWith
 void debugFillProperties(DiagnosticPropertiesBuilder properties) {
   properties
     ..add(DiagnosticsProperty('type', 'SettingScreenState'))
-    ..add(DiagnosticsProperty('settingsSnapshot', settingsSnapshot));
+    ..add(DiagnosticsProperty('settingsEntity', settingsEntity));
 }
 
 @override
 bool operator ==(Object other) {
-  return identical(this, other) || (other.runtimeType == runtimeType&&other is _SettingsState&&(identical(other.settingsSnapshot, settingsSnapshot) || other.settingsSnapshot == settingsSnapshot));
+  return identical(this, other) || (other.runtimeType == runtimeType&&other is _SettingsState&&(identical(other.settingsEntity, settingsEntity) || other.settingsEntity == settingsEntity));
 }
 
 
 @override
-int get hashCode => Object.hash(runtimeType,settingsSnapshot);
+int get hashCode => Object.hash(runtimeType,settingsEntity);
 
 @override
 String toString({ DiagnosticLevel minLevel = DiagnosticLevel.info }) {
-  return 'SettingScreenState(settingsSnapshot: $settingsSnapshot)';
+  return 'SettingScreenState(settingsEntity: $settingsEntity)';
 }
 
 
@@ -544,11 +535,11 @@ abstract mixin class _$SettingsStateCopyWith<$Res> implements $SettingScreenStat
   factory _$SettingsStateCopyWith(_SettingsState value, $Res Function(_SettingsState) _then) = __$SettingsStateCopyWithImpl;
 @override @useResult
 $Res call({
- SettingsSnapshot settingsSnapshot
+ SettingEntity settingsEntity
 });
 
 
-@override $SettingsSnapshotCopyWith<$Res> get settingsSnapshot;
+
 
 }
 /// @nodoc
@@ -561,23 +552,14 @@ class __$SettingsStateCopyWithImpl<$Res>
 
 /// Create a copy of SettingScreenState
 /// with the given fields replaced by the non-null parameter values.
-@override @pragma('vm:prefer-inline') $Res call({Object? settingsSnapshot = null,}) {
+@override @pragma('vm:prefer-inline') $Res call({Object? settingsEntity = null,}) {
   return _then(_SettingsState(
-settingsSnapshot: null == settingsSnapshot ? _self.settingsSnapshot : settingsSnapshot // ignore: cast_nullable_to_non_nullable
-as SettingsSnapshot,
+settingsEntity: null == settingsEntity ? _self.settingsEntity : settingsEntity // ignore: cast_nullable_to_non_nullable
+as SettingEntity,
   ));
 }
 
-/// Create a copy of SettingScreenState
-/// with the given fields replaced by the non-null parameter values.
-@override
-@pragma('vm:prefer-inline')
-$SettingsSnapshotCopyWith<$Res> get settingsSnapshot {
-  
-  return $SettingsSnapshotCopyWith<$Res>(_self.settingsSnapshot, (value) {
-    return _then(_self.copyWith(settingsSnapshot: value));
-  });
-}
+
 }
 
 // dart format on

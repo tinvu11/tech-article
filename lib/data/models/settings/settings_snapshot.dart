@@ -1,3 +1,4 @@
+import 'package:flutter_article/domain/models/settings/settings.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
 import 'package:hive/hive.dart';
 import 'package:flutter_article/core/config/hive/hive_types.dart';
@@ -13,4 +14,10 @@ abstract class SettingsSnapshot with _$SettingsSnapshot {
 
   factory SettingsSnapshot.fromJson(Map<String, dynamic> json) =>
       _$SettingsSnapshotFromJson(json);
+}
+
+extension SettingsSnapshotX on SettingsSnapshot {
+  SettingEntity toEntity() {
+    return SettingEntity(isDarkMode: themeMode);
+  }
 }

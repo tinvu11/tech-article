@@ -2,6 +2,7 @@ import 'package:flutter/foundation.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_article/data/models/settings/settings_snapshot.dart';
 import 'package:flutter_article/domain/usecase/settings/settings_usecase.dart';
+import 'package:flutter_article/domain/models/settings/settings.dart';
 import 'package:flutter_article/service_locator.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
 
@@ -27,7 +28,7 @@ class SettingsBloc extends Bloc<SettingScreenEvent, SettingScreenState> {
       final settingsSnapshot = await sl<GetSettingsSnapshotUseCase>().call();
       settingsSnapshot.fold(
         (failure) => debugPrint('SettingsBloc: _onGetSettings error: $failure'),
-        (snapshot) => emit(SettingScreenState(settingsSnapshot: snapshot)),
+        (snapshot) => emit(SettingScreenState(settingsEntity: snapshot)),
       );
     } catch (e) {
       debugPrint('SettingsBloc: _onGetSettings error: $e');
@@ -36,14 +37,14 @@ class SettingsBloc extends Bloc<SettingScreenEvent, SettingScreenState> {
 
   _onSaveSettings(_SaveSettings event, Emitter<SettingScreenState> emit) async {
     try {
-      final currentSnapshot = state.settingsSnapshot;
-      final newSnapshot = SettingsSnapshot(
+      final currentSnapshot = state.settingsEntity;
+      final newSnapshot = SettingEntity(
         // seek: currentSnapshot.seek,
-        themeMode: event.themeMode,
+        isDarkMode: event.themeMode,
       );
 
       await sl<SaveSettingsSnapshotUseCase>().call(params: newSnapshot);
-      emit(SettingScreenState(settingsSnapshot: newSnapshot));
+      emit(SettingScreenState(settingsEntity: newSnapshot));
     } catch (e) {
       debugPrint('SettingsBloc: _onSaveSettings error: $e');
     }

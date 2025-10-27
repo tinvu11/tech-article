@@ -16,7 +16,7 @@ class _ThemeSwitcherState extends State<ThemeSwitcher> {
       builder: (context, state) {
         final texTheme = Theme.of(context).textTheme;
         final colorScheme = Theme.of(context).colorScheme;
-        final currentThemeMode = state.settingsSnapshot.themeMode;
+        final currentThemeMode = state.settingsEntity.isDarkMode;
         return ListTile(
           contentPadding: EdgeInsets.zero,
           leading: const Icon(Icons.color_lens_rounded),

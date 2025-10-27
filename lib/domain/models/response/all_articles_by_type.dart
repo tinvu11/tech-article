@@ -16,13 +16,4 @@ class AllArticlesEntity {
     required this.review,
     required this.deals,
   });
-  @override
-  String toString() {
-    return 'AllCategoryByType{hardware: ${hardware.map((article) => article.toString()).join(", ")}, '
-        'gaming: ${games.map((article) => article.toString()).join(", ")}, '
-        'mobile: ${mobile.map((article) => article.toString()).join(", ")}, '
-        'finance: ${finance.map((article) => article.toString()).join(", ")}, '
-        'review: ${review.map((article) => article.toString()).join(", ")}, '
-        'deals: ${deals.map((article) => article.toString()).join(", ")}} ';
-  }
 }

@@ -16,6 +16,8 @@ abstract class ArticlesResponse with _$ArticlesResponse {
 
 extension HomeDataResponseX on ArticlesResponse {
   HomeDataEntity toEntity() {
-    return HomeDataEntity(articles: articles.map((e) => e.toEntity()).toList());
+    return HomeDataEntity(
+      articles: articles.map((e) => e.toEntity()).toList(),
+    ); // e chính là ArticleDetailResponse
   }
 }

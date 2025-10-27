@@ -28,7 +28,8 @@ class AppRouter {
       // Read screen
       GoRoute(
         path: RoutePaths.read,
-        parentNavigatorKey: rootNavigatorKey,
+        parentNavigatorKey:
+            rootNavigatorKey, // Chỉ định rõ rằng màn hình này phải được đẩy lên Navigator gốc. Đây là lý do nó sẽ che cả thanh tab.
         pageBuilder: (context, state) {
           if (state.extra is ArticleDetailEntity) {
             final article = state.extra as ArticleDetailEntity;

@@ -1,6 +1,6 @@
 import 'package:dartz/dartz.dart';
 import 'package:flutter_article/core/api/rest_client.dart';
-import 'package:flutter_article/domain/models/response/article_detail.dart';
+import 'package:flutter_article/data/models/response/article_detail_response.dart';
 import 'package:flutter_article/service_locator.dart';
 
 abstract class SearchService {
@@ -13,10 +13,10 @@ class SearchServiceImpl implements SearchService {
     try {
       final client = RestClient(localDio);
       final requestBody = SearchRequest(query: query);
-      final List<ArticleDetailEntity> response = await client.searchArticles(
+      final List<ArticleDetailResponse> response = await client.searchArticles(
         requestBody,
       );
-      return Right(response);
+      return Right(response.toEntities());
     } catch (e) {
       return Left(e);
     }

@@ -1,5 +1,6 @@
 import 'package:dio/dio.dart';
 import 'package:flutter_article/core/constants/app_urls.dart';
+import 'package:flutter_article/data/models/response/article_detail_response.dart';
 import 'package:flutter_article/data/models/response/categories_response.dart';
 import 'package:flutter_article/data/models/response/articles_response.dart';
 import 'package:flutter_article/domain/models/response/article_detail.dart';
@@ -18,7 +19,7 @@ abstract class RestClient {
   Future<ArticlesResponse> getHomeData(@Body() HomeDataRequest body);
 
   @POST("/articles/by-ids")
-  Future<List<ArticleDetailEntity>> getMarkedArticles(
+  Future<List<ArticleDetailResponse>> getMarkedArticles(
     @Body() GetByIDsRequest body,
   );
   @POST("/articles/by-category")
@@ -27,7 +28,9 @@ abstract class RestClient {
   Future<CategoriesResponse> getCategories();
 
   @POST("/articles/search")
-  Future<List<ArticleDetailEntity>> searchArticles(@Body() SearchRequest body);
+  Future<List<ArticleDetailResponse>> searchArticles(
+    @Body() SearchRequest body,
+  );
 }
 
 class HomeDataRequest {

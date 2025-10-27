@@ -30,7 +30,7 @@ class _AppState extends State<App> with WidgetsBindingObserver {
   void didChangePlatformBrightness() {
     // This will be called when system theme changes
     final currentState = context.read<SettingsBloc>().state;
-    if (currentState.settingsSnapshot.themeMode == ThemeMode.system) {
+    if (currentState.settingsEntity.isDarkMode == ThemeMode.system) {
       _updateSystemUIOverlay(ThemeMode.system);
     }
   }
@@ -87,16 +87,16 @@ class _AppState extends State<App> with WidgetsBindingObserver {
   Widget build(BuildContext context) {
     return BlocConsumer<SettingsBloc, SettingScreenState>(
       listenWhen: (previous, current) {
-        return previous.settingsSnapshot.themeMode !=
-            current.settingsSnapshot.themeMode;
+        return previous.settingsEntity.isDarkMode !=
+            current.settingsEntity.isDarkMode;
       },
       listener: (context, state) {
         _updateSystemUIOverlay(
-          ThemeMode.values.elementAt(state.settingsSnapshot.themeMode),
+          ThemeMode.values.elementAt(state.settingsEntity.isDarkMode),
         );
       },
       builder: (context, state) {
-        final themeMode = state.settingsSnapshot.themeMode;
+        final themeMode = state.settingsEntity.isDarkMode;
         return MaterialApp.router(
           debugShowCheckedModeBanner: false,
           routerConfig: AppRouter.router,

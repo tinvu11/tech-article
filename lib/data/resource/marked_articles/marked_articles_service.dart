@@ -1,6 +1,6 @@
 import 'package:dartz/dartz.dart';
 import 'package:flutter_article/core/api/rest_client.dart';
-import 'package:flutter_article/domain/models/response/article_detail.dart';
+import 'package:flutter_article/data/models/response/article_detail_response.dart';
 import 'package:flutter_article/domain/usecase/marked_storage/marked_storage_usecase.dart';
 import 'package:flutter_article/service_locator.dart';
 
@@ -20,11 +20,10 @@ class MarkedArticlesServiceImpl implements MarkedArticlesService {
       final client = RestClient(localDio);
       final requestBody = GetByIDsRequest(ids: markedIds);
 
-      final List<ArticleDetailEntity> response = await client.getMarkedArticles(
-        requestBody,
-      );
+      final List<ArticleDetailResponse> response = await client
+          .getMarkedArticles(requestBody);
 
-      return Right(response);
+      return Right(response.toEntities());
     } catch (e) {
       return Left(e);
     }
